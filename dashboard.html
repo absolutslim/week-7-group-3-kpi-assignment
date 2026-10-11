@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Disney streaming transformation: scale, monetization and sustainable returns. Executive KPI dashboard for Group 3.">
+  <title>Disney | Streaming Transformation KPI Dashboard</title>
+  <!-- SINGLE SOURCE OF CHART DATA: copied from Week7_Mahdin_Data.xlsx.
+       Values remain in workbook units (percentages are fractions).
+       null means unavailable, never zero. Update this object when Mahdin supplies new data.
+       KPI_DATA rows, definitions, methods and source links are retained for auditability. -->
+  <script>
+    'use strict';
+    const DASHBOARD_DATA = {
+  "provenance": {
+    "workbook": "Week7_Mahdin_Data.xlsx",
+    "sheet": "KPI_DATA",
+    "owner": "Mahdin Awsaf Chowdhury",
+    "targetWindow": "Q1 FY2020–Q3 FY2026",
+    "authority": "Workbook data takes precedence over proposed Winning Map numeric claims. Source URLs retained; no independent verification claimed."
+  },
+  "metrics": [
+    {
+      "id": 1,
+      "name": "Disney+ Core paid subscribers and net adds",
+      "type": "Leading",
+      "summaryNote": "Definition break: Legacy Core vs. FY2025 recast. Net adds are calculated only within comparable definitions.",
+      "sourceMethod": "Paid subscribers are reported; net adds (calc.) subtract immediately adjacent quarters with the same definition. Both FY2024 original and recast observations are retained."
+    },
+    {
+      "id": 2,
+      "name": "Disney share of US TV viewing",
+      "type": "Leading",
+      "summaryNote": "Selected months; seasonal. First Media Distributor Gauge observation is Apr 2024.",
+      "sourceMethod": "Nielsen Media Distributor Gauge monthly shares; selected months only. No missing months are interpolated."
+    },
+    {
+      "id": 3,
+      "name": "Content investment as % of total revenue",
+      "type": "Leading",
+      "summaryNote": "Company-wide annual spending intensity. All ratios are calc.",
+      "sourceMethod": "Workbook calc.: (licensed programming/rights + produced-content spending) / consolidated revenue. Each raw calculation is listed in the embedded observations."
+    },
+    {
+      "id": 4,
+      "name": "Disney+ ARPU, domestic vs. international",
+      "type": "Lagging",
+      "summaryNote": "Domestic / international, USD per month. International definition changes in FY2025.",
+      "sourceMethod": "Reported annual monthly ARPU for domestic and international subscribers; FY2024 original and FY2025-scope recast comparables are both retained."
+    },
+    {
+      "id": 5,
+      "name": "Streaming operating margin",
+      "type": "Lagging",
+      "summaryNote": "calc. Different perimeters: Combined DTC vs. Entertainment SVOD. No comparable full-period delta.",
+      "sourceMethod": "Workbook calc.: operating income / revenue. The three definition groups are plotted separately. INFLECTIONS supplies the contextual callouts."
+    },
+    {
+      "id": 6,
+      "name": "DTC vs. Linear Networks: revenue mix and operating income",
+      "type": "Lagging",
+      "summaryNote": "DTC share of DTC + Linear revenue. Operating-income data: TODO.",
+      "sourceMethod": "Workbook calc.: DTC revenue / (DTC + Linear revenue). The chart calculates Linear share as 1 minus DTC share. Operating-income overlay awaits source rows."
+    },
+    {
+      "id": 7,
+      "name": "Entertainment segment operating margin",
+      "type": "Lagging",
+      "summaryNote": "calc. annual baseline vs. reported quarterly latest; no direct delta. Latest comparable annual: FY2025.",
+      "sourceMethod": "Workbook calc. annual margins and reported supplementary quarterly margins are displayed with their distinct cadence."
+    }
+  ],
+  "quarters": [
+    "Q4 FY2022",
+    "Q1 FY2023",
+    "Q2 FY2023",
+    "Q3 FY2023",
+    "Q4 FY2023",
+    "Q1 FY2024",
+    "Q2 FY2024",
+    "Q3 FY2024",
+    "Q4 FY2024",
+    "Q1 FY2025",
+    "Q2 FY2025",
+    "Q3 FY2025",
+    "Q4 FY2025",
+    "Q1 FY2026",
+    "Q2 FY2026",
+    "Q3 FY2026"
+  ],
+  "months": [
+    "Apr 2024",
+    "May 2024",
+    "Jun 2024",
+    "Jul 2024",
+    "Aug 2024",
+    "Sep 2024",
+    "Oct 2024",
+    "Nov 2024",
+    "Dec 2024",
+    "Jan 2025",
+    "Feb 2025",
+    "Mar 2025",
+    "Apr 2025",
+    "May 2025",
+    "Jun 2025",
+    "Jul 2025",
+    "Aug 2025",
+    "Sep 2025",
+    "Oct 2025",
+    "Nov 2025",
+    "Dec 2025",
+    "Jan 2026",
+    "Feb 2026",
+    "Mar 2026",
+    "Apr 2026",
+    "May 2026"
+  ],
+  "observations": [
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q4 FY2022",
+      "value": 102.9,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448922000192/fy2022_q4xprxex991.htm",
+      "notes": "Core excludes Hotstar.",
+      "cell": "D2"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q1 FY2023",
+      "value": 104.3,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000049/dis-20221231.htm",
+      "notes": null,
+      "cell": "D3"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q2 FY2023",
+      "value": 104.9,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2023/The-Walt-Disney-Company-Reports-Second-Quarter-and-Six-Months-Earnings-for-Fiscal-2023/default.aspx",
+      "notes": null,
+      "cell": "D4"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q3 FY2023",
+      "value": 105.7,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000169/fy2023_q3xprxex991.htm",
+      "notes": null,
+      "cell": "D5"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q4 FY2023",
+      "value": 112.6,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D6"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q1 FY2024",
+      "value": 111.3,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-First-Quarter-Earnings-for-Fiscal-2024-02-07-2024/default.aspx",
+      "notes": null,
+      "cell": "D7"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q2 FY2024",
+      "value": 117.6,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Second-Quarter-and-Six-Months-Earnings-for-Fiscal-2024-05-07-2024/default.aspx",
+      "notes": null,
+      "cell": "D8"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q3 FY2024",
+      "value": 118.3,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Third-Quarter-and-Nine-Months-Earnings-for-Fiscal-2024-08-07-2024/default.aspx",
+      "notes": null,
+      "cell": "D9"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q4 FY2024",
+      "value": 122.7,
+      "unit": "M subscribers",
+      "definition": "Legacy Core",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000276/dis-20240928.htm",
+      "notes": "Last old-definition Core point.",
+      "cell": "D10"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q4 FY2024 recast",
+      "value": 125.3,
+      "unit": "M subscribers",
+      "definition": "FY2025 Recast",
+      "status": "recast reported",
+      "method": "Reported value",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "notes": "Includes Southeast Asia previously reported with Hotstar. Not growth from 122.7.",
+      "cell": "D11"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q1 FY2025",
+      "value": 124.6,
+      "unit": "M subscribers",
+      "definition": "FY2025 Recast",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-second-quarter-and-six-months-earnings-for-fiscal-2025/",
+      "notes": null,
+      "cell": "D12"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q2 FY2025",
+      "value": 126,
+      "unit": "M subscribers",
+      "definition": "FY2025 Recast",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-second-quarter-and-six-months-earnings-for-fiscal-2025/",
+      "notes": null,
+      "cell": "D13"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q3 FY2025",
+      "value": 127.8,
+      "unit": "M subscribers",
+      "definition": "FY2025 Recast",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+      "notes": null,
+      "cell": "D14"
+    },
+    {
+      "kpi": "KPI1",
+      "series": "Disney+ paid subscribers",
+      "period": "Q4 FY2025",
+      "value": 131.6,
+      "unit": "M subscribers",
+      "definition": "FY2025 Recast",
+      "status": "reported",
+      "method": "Reported value",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+      "notes": "Latest reported annual subscriber count before FY2026 disclosure change.",
+      "cell": "D15"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "Apr 2024",
+      "value": 0.115,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2024/nielsen-launches-the-media-distributor-gauge-first-convergent-tv-comparison-of-its-kind/",
+      "notes": "First Media Distributor Gauge; Disney #1.",
+      "cell": "D16"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "Sep 2024",
+      "value": 0.113,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2024/disney-retakes-top-spot-in-nielsens-media-distributor-gauge-as-football-hikes-tv-viewing-in-september/",
+      "notes": "Disney retakes top spot; football boosts ESPN/ABC.",
+      "cell": "D17"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "Jan 2025",
+      "value": 0.12,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2025/college-football-playoffs-on-espn-boost-disneys-lead-in-nielsens-january-2025-media-distributor-gauge/",
+      "notes": "College football/ESPN lifts Disney share.",
+      "cell": "D18"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "Jul 2025",
+      "value": 0.094,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2025/youtube-netflix-ride-the-wave-of-summer-streaming-highs-in-nielsens-media-distributor-gauge/",
+      "notes": "Summer streaming high; YouTube leads.",
+      "cell": "D19"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "Jan 2026",
+      "value": 0.119,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2026/disney-scores-best-performance-in-a-year-in-nielsens-january-2026-media-distributor-gauge/",
+      "notes": "Best Disney performance in a year; ESPN CFP boost.",
+      "cell": "D20"
+    },
+    {
+      "kpi": "KPI2",
+      "series": "Disney share of U.S. TV viewing",
+      "period": "May 2026",
+      "value": 0.1,
+      "unit": "% share",
+      "definition": "Nielsen Media Distributor Gauge",
+      "status": "reported",
+      "method": "Reported monthly share",
+      "url": "https://www.nielsen.com/news-center/2026/streaming-embarks-on-annual-summer-ascent-in-nielsens-may-2026-gauge-reports/",
+      "notes": "Disney #2; ESPN lifted by NBA playoffs.",
+      "cell": "D21"
+    },
+    {
+      "kpi": "KPI3",
+      "series": "Content investment / total revenue",
+      "period": "FY2022",
+      "value": 0.36177800343318584,
+      "unit": "% of revenue",
+      "definition": "Company-wide",
+      "status": "calc.",
+      "method": "(13,316 + 16,611) / 82,722",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448922000213/dis-20221001.htm",
+      "notes": "Licensed programming/rights + produced content spending divided by consolidated revenue.",
+      "cell": "D22"
+    },
+    {
+      "kpi": "KPI3",
+      "series": "Content investment / total revenue",
+      "period": "FY2023",
+      "value": 0.3056761681927602,
+      "unit": "% of revenue",
+      "definition": "Company-wide",
+      "status": "calc.",
+      "method": "(14,851 + 12,323) / 88,898",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": "Licensed programming/rights + produced content spending divided by consolidated revenue.",
+      "cell": "D23"
+    },
+    {
+      "kpi": "KPI3",
+      "series": "Content investment / total revenue",
+      "period": "FY2024",
+      "value": 0.2565098893400904,
+      "unit": "% of revenue",
+      "definition": "Company-wide",
+      "status": "calc.",
+      "method": "(13,619 + 9,816) / 91,361",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2024/ar/2024-Annual-Report-1.pdf",
+      "notes": "Licensed programming/rights + produced content spending divided by consolidated revenue.",
+      "cell": "D24"
+    },
+    {
+      "kpi": "KPI3",
+      "series": "Content investment / total revenue",
+      "period": "FY2025",
+      "value": 0.2404977495366693,
+      "unit": "% of revenue",
+      "definition": "Company-wide",
+      "status": "calc.",
+      "method": "(12,887 + 9,822) / 94,425",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+      "notes": "Licensed programming/rights + produced content spending divided by consolidated revenue.",
+      "cell": "D25"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — Domestic",
+      "period": "FY2022",
+      "value": 6.34,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D26"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — International",
+      "period": "FY2022",
+      "value": 6.1,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D27"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — Domestic",
+      "period": "FY2023",
+      "value": 6.97,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D28"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — International",
+      "period": "FY2023",
+      "value": 5.93,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D29"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — Domestic",
+      "period": "FY2024 original",
+      "value": 7.89,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001744489/000174448925000058/ars_2024.pdf",
+      "notes": "Original FY2024 disclosure.",
+      "cell": "D30"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — International",
+      "period": "FY2024 original",
+      "value": 6.6,
+      "unit": "$/month",
+      "definition": "Legacy excl. Hotstar",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001744489/000174448925000058/ars_2024.pdf",
+      "notes": "Original FY2024 disclosure.",
+      "cell": "D31"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — Domestic",
+      "period": "FY2024 recast",
+      "value": 7.89,
+      "unit": "$/month",
+      "definition": "FY2025 Recast incl. SE Asia",
+      "status": "recast reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "notes": "Use recast row for clean FY2024→FY2025 international comparison.",
+      "cell": "D32"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — International",
+      "period": "FY2024 recast",
+      "value": 6.38,
+      "unit": "$/month",
+      "definition": "FY2025 Recast incl. SE Asia",
+      "status": "recast reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "notes": "Use recast row for clean FY2024→FY2025 international comparison.",
+      "cell": "D33"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — Domestic",
+      "period": "FY2025",
+      "value": 8.06,
+      "unit": "$/month",
+      "definition": "FY2025 Recast incl. SE Asia",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "notes": null,
+      "cell": "D34"
+    },
+    {
+      "kpi": "KPI4",
+      "series": "Disney+ ARPU — International",
+      "period": "FY2025",
+      "value": 7.59,
+      "unit": "$/month",
+      "definition": "FY2025 Recast incl. SE Asia",
+      "status": "reported",
+      "method": "Reported ARPU",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "notes": null,
+      "cell": "D35"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q4 FY2022",
+      "value": -0.2996742671009772,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "-1472 / 4912",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448922000192/fy2022_q4xprxex991.htm",
+      "notes": "Scale-first loss peak.",
+      "cell": "D36"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q1 FY2023",
+      "value": -0.19841718485019785,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "-1053 / 5307",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000049/dis-20221231.htm",
+      "notes": "Monetization reset period.",
+      "cell": "D37"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q4 FY2023",
+      "value": -0.06969205834683954,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "-387 / 5553",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000213/fy2023_q4xprxex991.htm",
+      "notes": "Loss narrows materially.",
+      "cell": "D38"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q1 FY2024",
+      "value": -0.035555555555555556,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "-216 / 6075",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-First-Quarter-Earnings-for-Fiscal-2024-02-07-2024/default.aspx",
+      "notes": null,
+      "cell": "D39"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q2 FY2024",
+      "value": -0.0029088558500323207,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "-18 / 6188",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Second-Quarter-and-Six-Months-Earnings-for-Fiscal-2024-05-07-2024/default.aspx",
+      "notes": "Near breakeven.",
+      "cell": "D40"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q3 FY2024",
+      "value": 0.007367926007211162,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "47 / 6379",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Third-Quarter-and-Nine-Months-Earnings-for-Fiscal-2024-08-07-2024/default.aspx",
+      "notes": "First positive combined streaming profitability in selected series.",
+      "cell": "D41"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q4 FY2024",
+      "value": 0.05098475222363405,
+      "unit": "% margin",
+      "definition": "A · Combined DTC streaming",
+      "status": "calc.",
+      "method": "321 / 6296",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000275/fy2024_q4xprxex991.htm",
+      "notes": "Old combined series ends.",
+      "cell": "D42"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q1 FY2025",
+      "value": 0.04825428194993412,
+      "unit": "% margin",
+      "definition": "B · Entertainment DTC",
+      "status": "calc.",
+      "method": "293 / 6072",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000067/dis-20241228.htm",
+      "notes": "Definition break: excludes ESPN+.",
+      "cell": "D43"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q2 FY2025",
+      "value": 0.05491990846681922,
+      "unit": "% margin",
+      "definition": "B · Entertainment DTC",
+      "status": "calc.",
+      "method": "336 / 6118",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000096/fy2025_q2xprxex991.htm",
+      "notes": null,
+      "cell": "D44"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q3 FY2025",
+      "value": 0.056023316062176164,
+      "unit": "% margin",
+      "definition": "B · Entertainment DTC",
+      "status": "calc.",
+      "method": "346 / 6176",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000135/fy2025_q3xprxex991.htm",
+      "notes": null,
+      "cell": "D45"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q4 FY2025",
+      "value": 0.056338028169014086,
+      "unit": "% margin",
+      "definition": "B · Entertainment DTC",
+      "status": "calc.",
+      "method": "352 / 6248",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+      "notes": null,
+      "cell": "D46"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q1 FY2026",
+      "value": 0.08417508417508418,
+      "unit": "% margin",
+      "definition": "C · Entertainment SVOD",
+      "status": "calc.",
+      "method": "450 / 5346",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000018/fy2026_q1xprxex991.htm",
+      "notes": "Definition break; reported margin ~8.4%.",
+      "cell": "D47"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q2 FY2026",
+      "value": 0.1060882245716369,
+      "unit": "% margin",
+      "definition": "C · Entertainment SVOD",
+      "status": "calc.",
+      "method": "582 / 5486",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/fy2026_q2xprxex991.htm",
+      "notes": "Reported margin ~10.6%.",
+      "cell": "D48"
+    },
+    {
+      "kpi": "KPI5",
+      "series": "Streaming operating margin",
+      "period": "Q3 FY2026",
+      "value": 0.128705712219812,
+      "unit": "% margin",
+      "definition": "C · Entertainment SVOD",
+      "status": "calc.",
+      "method": "712 / 5532",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+      "notes": "Reported margin ~12.9%.",
+      "cell": "D49"
+    },
+    {
+      "kpi": "KPI6",
+      "series": "DTC share of DTC + Linear revenue",
+      "period": "FY2022",
+      "value": 0.5835470571048275,
+      "unit": "% revenue mix",
+      "definition": "Entertainment only",
+      "status": "calc.",
+      "method": "17975 / (17975 + 12828)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": "Sports/ESPN excluded.",
+      "cell": "D50"
+    },
+    {
+      "kpi": "KPI6",
+      "series": "DTC share of DTC + Linear revenue",
+      "period": "FY2023",
+      "value": 0.629562794820654,
+      "unit": "% revenue mix",
+      "definition": "Entertainment only",
+      "status": "calc.",
+      "method": "19886 / (19886 + 11701)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": "Sports/ESPN excluded.",
+      "cell": "D51"
+    },
+    {
+      "kpi": "KPI6",
+      "series": "DTC share of DTC + Linear revenue",
+      "period": "FY2024",
+      "value": 0.6805306561491574,
+      "unit": "% revenue mix",
+      "definition": "Entertainment only",
+      "status": "calc.",
+      "method": "22776 / (22776 + 10692)",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+      "notes": "Sports/ESPN excluded.",
+      "cell": "D52"
+    },
+    {
+      "kpi": "KPI6",
+      "series": "DTC share of DTC + Linear revenue",
+      "period": "FY2025",
+      "value": 0.7244099122961917,
+      "unit": "% revenue mix",
+      "definition": "Entertainment only",
+      "status": "calc.",
+      "method": "24614 / (24614 + 9364)",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+      "notes": "Sports/ESPN excluded.",
+      "cell": "D53"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "FY2022",
+      "value": 0.053728929212262126,
+      "unit": "% margin",
+      "definition": "Annual comparable",
+      "status": "calc.",
+      "method": "2126 / 39569",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D54"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "FY2023",
+      "value": 0.035535868094007626,
+      "unit": "% margin",
+      "definition": "Annual comparable",
+      "status": "calc.",
+      "method": "1444 / 40635",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "notes": null,
+      "cell": "D55"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "FY2024",
+      "value": 0.09525081338318846,
+      "unit": "% margin",
+      "definition": "Annual comparable",
+      "status": "calc.",
+      "method": "3923 / 41186",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+      "notes": null,
+      "cell": "D56"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "FY2025",
+      "value": 0.11006452220600009,
+      "unit": "% margin",
+      "definition": "Annual comparable",
+      "status": "calc.",
+      "method": "4674 / 42466",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+      "notes": null,
+      "cell": "D57"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "Q1 FY2026",
+      "value": 0.095,
+      "unit": "% margin",
+      "definition": "Quarterly supplementary",
+      "status": "reported",
+      "method": "Reported margin",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000018/fy2026_q1xprxex991.htm",
+      "notes": "Supplementary latest proof point; not annual-to-annual.",
+      "cell": "D58"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "Q2 FY2026",
+      "value": 0.114,
+      "unit": "% margin",
+      "definition": "Quarterly supplementary",
+      "status": "reported",
+      "method": "Reported margin",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/fy2026_q2xprxex991.htm",
+      "notes": "Supplementary latest proof point; not annual-to-annual.",
+      "cell": "D59"
+    },
+    {
+      "kpi": "KPI7",
+      "series": "Entertainment segment operating margin",
+      "period": "Q3 FY2026",
+      "value": 0.148,
+      "unit": "% margin",
+      "definition": "Quarterly supplementary",
+      "status": "reported",
+      "method": "Reported margin",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+      "notes": "Supplementary latest proof point; not annual-to-annual.",
+      "cell": "D60"
+    }
+  ],
+  "inflections": [
+    {
+      "id": "IP1",
+      "period": "Q4 FY2022",
+      "metric": "Streaming operating margin",
+      "title": "Scale-first loss peak",
+      "whatChanged": "Combined streaming DTC reaches the deepest selected loss point.",
+      "evidence": "Revenue $4.912B; operating loss $1.472B; calc. margin ≈ -30.0%.",
+      "context": "Disney cited higher programming/production, marketing and technology costs while scaling.",
+      "wording": "Q4 FY2022: Combined streaming margin fell to about -30% as Disney absorbed heavy programming, marketing and technology costs while scaling.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448922000192/fy2022_q4xprxex991.htm"
+    },
+    {
+      "id": "IP2",
+      "period": "Q1 FY2023",
+      "metric": "Streaming operating margin / monetization pivot",
+      "title": "Monetization pivot",
+      "whatChanged": "Selected combined-streaming margin improves sequentially to about -19.8%.",
+      "evidence": "Revenue $5.307B; operating loss $1.053B; calc. margin ≈ -19.8%.",
+      "context": "Bob Iger returned in Nov. 2022; Disney+ launched an ad-supported tier and new pricing in Dec. 2022. Treat this as a coincident strategic pivot, not sole causation.",
+      "wording": "Q1 FY2023: Disney shifted toward monetization—new Disney+ pricing and the ad tier arrived as combined streaming losses began to narrow.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000049/dis-20221231.htm"
+    },
+    {
+      "id": "IP3",
+      "period": "Q3 FY2024",
+      "metric": "Streaming operating margin",
+      "title": "Combined streaming turns positive",
+      "whatChanged": "Combined streaming turns positive in the selected series.",
+      "evidence": "Revenue $6.379B; operating income $47M; calc. margin ≈ +0.7%.",
+      "context": "Disney said combined streaming profitability arrived one quarter ahead of prior guidance; subscription pricing, subscriber growth and advertising helped Entertainment DTC.",
+      "wording": "Q3 FY2024: Combined streaming turned profitable (+$47M, about 0.7% margin), marking the shift from scale to returns.",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Third-Quarter-and-Nine-Months-Earnings-for-Fiscal-2024-08-07-2024/default.aspx"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "kpis": "1,3,4,6,7",
+      "title": "Disney FY2023 Form 10-K",
+      "period": "FY2023 / FY2022 comparative",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S2",
+      "kpis": "3,4",
+      "title": "Disney FY2024 Annual Report",
+      "period": "FY2024",
+      "type": "Primary annual report",
+      "url": "https://investors.thewaltdisneycompany.com/files/doc_financials/2024/ar/2024-Annual-Report-1.pdf",
+      "publicationDate": null
+    },
+    {
+      "id": "S3",
+      "kpis": "1,3,4,6,7",
+      "title": "Disney FY2025 Form 10-K",
+      "period": "FY2025 / recast FY2024",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S4",
+      "kpis": "5",
+      "title": "Disney Q4 FY2022 earnings exhibit",
+      "period": "Q4 FY2022",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448922000192/fy2022_q4xprxex991.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S5",
+      "kpis": "5",
+      "title": "Disney Q1 FY2023 Form 10-Q",
+      "period": "Q1 FY2023",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000049/dis-20221231.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S6",
+      "kpis": "5",
+      "title": "Disney Q3 FY2024 earnings",
+      "period": "Q3 FY2024",
+      "type": "Primary IR",
+      "url": "https://investors.thewaltdisneycompany.com/news/news-details/2024/The-Walt-Disney-Company-Reports-Third-Quarter-and-Nine-Months-Earnings-for-Fiscal-2024-08-07-2024/default.aspx",
+      "publicationDate": null
+    },
+    {
+      "id": "S7",
+      "kpis": "5",
+      "title": "Disney Q4 FY2024 earnings exhibit",
+      "period": "Q4 FY2024",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000275/fy2024_q4xprxex991.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S8",
+      "kpis": "1,5",
+      "title": "Disney Q4 FY2025 earnings",
+      "period": "Q4 FY2025",
+      "type": "Primary IR",
+      "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+      "publicationDate": null
+    },
+    {
+      "id": "S9",
+      "kpis": "5,7",
+      "title": "Disney Q1 FY2026 earnings exhibit",
+      "period": "Q1 FY2026",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000018/fy2026_q1xprxex991.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S10",
+      "kpis": "5,7",
+      "title": "Disney Q2 FY2026 earnings exhibit",
+      "period": "Q2 FY2026",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000036/fy2026_q2xprxex991.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "S11",
+      "kpis": "5,7",
+      "title": "Disney Q3 FY2026 earnings exhibit",
+      "period": "Q3 FY2026",
+      "type": "Primary SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000056/fy2026_q3xerxex991.htm",
+      "publicationDate": null
+    },
+    {
+      "id": "N1",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "Apr 2024",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2024/nielsen-launches-the-media-distributor-gauge-first-convergent-tv-comparison-of-its-kind/",
+      "publicationDate": null
+    },
+    {
+      "id": "N2",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "Sep 2024",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2024/disney-retakes-top-spot-in-nielsens-media-distributor-gauge-as-football-hikes-tv-viewing-in-september/",
+      "publicationDate": null
+    },
+    {
+      "id": "N3",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "Jan 2025",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2025/college-football-playoffs-on-espn-boost-disneys-lead-in-nielsens-january-2025-media-distributor-gauge/",
+      "publicationDate": null
+    },
+    {
+      "id": "N4",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "Jul 2025",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2025/youtube-netflix-ride-the-wave-of-summer-streaming-highs-in-nielsens-media-distributor-gauge/",
+      "publicationDate": null
+    },
+    {
+      "id": "N5",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "Jan 2026",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2026/disney-scores-best-performance-in-a-year-in-nielsens-january-2026-media-distributor-gauge/",
+      "publicationDate": null
+    },
+    {
+      "id": "N6",
+      "kpis": "2",
+      "title": "Nielsen Media Distributor Gauge",
+      "period": "May 2026",
+      "type": "External reputable",
+      "url": "https://www.nielsen.com/news-center/2026/streaming-embarks-on-annual-summer-ascent-in-nielsens-may-2026-gauge-reports/",
+      "publicationDate": null
+    }
+  ],
+  "todos": [
+    "Supply Q1 FY2020 baselines and pre-FY2022 history where available; the current workbook starts in FY2022 / Q4 FY2022. No earlier values are backfilled from the Week 6 files.",
+    "Supply missing quarterly observations for Streaming operating margin, including Q2 and Q3 FY2023; preserve gaps until verified.",
+    "Resolve Metric 5 scope: the Winning Map requests Entertainment-only history, while the workbook starts with Combined DTC including ESPN+. Supply Entertainment-only history and recast FY2025 SVOD comparables before bridging.",
+    "Supply DTC and Linear Networks operating income for Metric 6. Revenue-share calculations exist; the required operating-income line series does not.",
+    "Supply quarterly domestic/international ARPU and ad-tier annotation evidence. The workbook provides annual ARPU only, so quarter-specific stress tests remain pending.",
+    "Confirm the FY2025 Southeast Asia recast and retain matched definitions. Subscriber and international ARPU changes across definitions are not comparable growth.",
+    "Supply the recast quarterly Entertainment margin history. FY2022–FY2025 annual margins and FY2026 quarterly proof points have different cadence.",
+    "Add publication / filing dates and confirm row-specific source coverage. The source register omits some KPI_DATA URLs and does not supply publication dates consistently.",
+    "Confirm the team’s stress-test thresholds and complete the Strategic Interpretation after the data gaps are resolved; this first build does not assign a harvest / monetization verdict."
+  ]
+};
+  </script>
+  <style>
+    :root { --bg:#081221; --surface:#101e31; --raised:#14253c; --border:#2b3c53; --ink:#f4f7fc; --muted:#b4c2d5; --blue:#82b8ff; --teal:#68dec8; --gold:#e8c587; --rose:#f2a3af; --quiet:#8fa3bd; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.55 "Segoe UI",Arial,sans-serif; }
+    a { color:var(--blue); text-underline-offset:3px; }
+    a:focus-visible, summary:focus-visible { outline:2px solid var(--gold); outline-offset:5px; }
+    .skip-link { position:absolute; top:-100px; left:20px; z-index:2; background:var(--raised); padding:12px; }
+    .skip-link:focus { top:12px; }
+    .shell { width:100%; max-width:1600px; padding:32px 36px 24px; margin:auto; }
+    .masthead { display:flex; align-items:center; justify-content:space-between; gap:24px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    .brand { font-size:22px; font-weight:750; letter-spacing:.17em; }
+    .brand span { display:block; color:var(--quiet); font-size:10px; letter-spacing:.2em; font-weight:600; margin-top:3px; }
+    .masthead nav { display:flex; gap:22px; font-size:12px; }
+    .masthead nav a { color:var(--muted); text-decoration:none; }
+    .masthead nav a:hover { color:var(--ink); }
+    .eyebrow { color:var(--blue); text-transform:uppercase; letter-spacing:.14em; font-size:11px; font-weight:650; margin:0 0 8px; }
+    .intro { display:grid; grid-template-columns:minmax(0,1.75fr) minmax(280px,.8fr); gap:48px; padding:30px 0 24px; }
+    h1 { font-size:clamp(30px,3.3vw,46px); letter-spacing:-.035em; line-height:1.15; margin:0 0 16px; font-weight:650; }
+    .thesis { margin:0; color:var(--muted); font-size:16px; line-height:1.7; max-width:920px; }
+    .window { border-left:1px solid var(--border); padding-left:26px; align-self:center; }
+    .window h2 { margin:0 0 5px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+    .window strong { display:block; font-size:17px; line-height:1.4; font-weight:600; }
+    .window p { margin:9px 0 0; color:var(--muted); font-size:12px; }
+    .section-label { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin:0 0 12px; }
+    .section-label h2 { margin:0; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+    .section-label p { margin:0; font-size:11px; color:var(--quiet); }
+    .summary-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; }
+    .summary-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:15px 13px; min-width:0; display:flex; flex-direction:column; }
+    .summary-card.hero-summary { border-color:#567494; background:var(--raised); }
+    .metric-id { display:block; color:var(--quiet); font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; }
+    .summary-card h3 { margin:7px 0 16px; min-height:66px; font-size:12px; line-height:1.4; font-weight:600; }
+    .summary-pair { display:grid; gap:12px; }
+    .summary-pair div { display:flex; flex-direction:column; }
+    .summary-pair span { font-size:10px; color:var(--muted); }
+    .summary-pair strong { font-size:22px; line-height:1.35; font-weight:650; letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+    .summary-pair .latest strong { color:var(--teal); }
+    .summary-pair small { color:var(--quiet); font-size:10px; }
+    .summary-note { color:var(--muted); font-size:11px; line-height:1.5; margin:14px 0 0; padding-top:11px; border-top:1px solid var(--border); }
+    .summary-footnote { margin:12px 0 24px; color:var(--muted); font-size:12px; }
+    .summary-footnote a { text-decoration:none; }
+    .dashboard-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:stretch; }
+    .chart-card { min-width:0; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px; display:flex; flex-direction:column; scroll-margin-top:20px; }
+    .chart-card.hero { grid-column:1/-1; border-color:#53799e; padding:28px; border-top:3px solid var(--blue); }
+    .card-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; }
+    .card-heading > div { min-width:0; }
+    .chart-card h2 { margin:6px 0 9px; font-size:18px; line-height:1.35; font-weight:600; letter-spacing:-.015em; }
+    .chart-card:not(.hero) h2 { min-height:50px; }
+    .hero h2 { font-size:27px; min-height:0; }
+    .card-subtitle { font-size:12px; color:var(--muted); margin:0 0 10px; }
+    .hero .card-subtitle { font-size:14px; max-width:870px; }
+    .hero-value { text-align:right; flex-shrink:0; }
+    .hero-value strong { display:block; color:var(--teal); font-size:44px; letter-spacing:-.04em; font-weight:650; line-height:1.2; }
+    .hero-value span { color:var(--muted); font-size:11px; display:block; }
+    .hero-value small { color:var(--quiet); font-size:11px; }
+    .legend { display:flex; flex-wrap:wrap; gap:8px 16px; color:var(--muted); font-size:11px; margin:8px 0 15px; }
+    .legend span { display:inline-flex; gap:7px; align-items:center; }
+    .swatch { width:18px; height:3px; background:var(--blue); flex-shrink:0; }
+    .swatch.teal { background:var(--teal); } .swatch.gold { background:var(--gold); } .swatch.rose { background:var(--rose); }
+    .swatch.bar { height:9px; border-radius:2px; } .swatch.dashed { height:0; border-top:2px dashed var(--gold); background:none; }
+    .chart-wrap { position:relative; height:245px; width:100%; min-width:0; margin-top:auto; }
+    .hero .chart-wrap { height:340px; margin-top:8px; }
+    .chart-wrap canvas { max-width:100%; }
+    .metric-7 .chart-wrap { height:195px; }
+    .chart-note { margin:15px 0 0; padding-top:13px; border-top:1px solid var(--border); color:var(--muted); font-size:11px; line-height:1.65; }
+    .todo { color:var(--gold); }
+    .supplement { display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:1px solid var(--border); padding-top:12px; margin-top:14px; }
+    .supplement p { font-size:11px; margin:0; color:var(--muted); }
+    .supplement strong { font-size:25px; color:var(--teal); white-space:nowrap; font-weight:600; }
+    .inflections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; padding-top:22px; margin-top:14px; border-top:1px solid var(--border); }
+    .inflection small { color:var(--gold); text-transform:uppercase; font-size:10px; letter-spacing:.09em; }
+    .inflection h3 { font-size:14px; margin:5px 0; font-weight:600; }
+    .inflection p { margin:0; color:var(--muted); font-size:12px; }
+    .notice { font-size:12px; background:var(--raised); border:1px solid var(--border); padding:12px 16px; border-radius:8px; margin:0 0 18px; color:var(--gold); }
+    .notice[hidden] { display:none; }
+    footer { margin-top:30px; border-top:1px solid var(--border); padding-top:26px; }
+    footer h2 { font-size:21px; font-weight:600; margin:0 0 10px; }
+    .source-intro { display:grid; grid-template-columns:1.5fr 1fr; gap:32px; margin-bottom:18px; }
+    .source-intro p { margin:0; color:var(--muted); font-size:12px; }
+    details { border-top:1px solid var(--border); padding:13px 0; }
+    summary { cursor:pointer; font-size:13px; color:var(--ink); font-weight:600; }
+    .source-list { padding-left:22px; margin:14px 0 4px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px 28px; }
+    .source-list li { color:var(--muted); font-size:11px; overflow-wrap:anywhere; }
+    .source-list span { display:block; color:var(--quiet); margin-top:3px; }
+    .raw-data { width:100%; border-collapse:collapse; margin-top:14px; font-size:11px; table-layout:fixed; }
+    .raw-data th, .raw-data td { border-bottom:1px solid var(--border); padding:9px 8px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    .raw-data th { color:var(--quiet); font-weight:600; } .raw-data td { color:var(--muted); }
+    .raw-data th:nth-child(1) { width:13%; } .raw-data th:nth-child(2) { width:24%; } .raw-data th:nth-child(3) { width:13%; }
+    .build-notes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 26px; font-size:12px; color:var(--muted); padding-left:20px; margin:16px 0; }
+    .credits { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 20px; margin-top:22px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--quiet); }
+    @media (min-width:1440px) { .summary-card h3 { font-size:13px; } }
+    @media (max-width:1100px) { .shell { padding:24px; } .summary-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } .dashboard-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .intro { gap:26px; } }
+    @media (max-width:760px) { .shell { padding:18px; } .intro { grid-template-columns:1fr; gap:20px; } .window { border-left:0; border-top:1px solid var(--border); padding:16px 0 0; } .summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .dashboard-grid { grid-template-columns:1fr; } .masthead nav { gap:12px; font-size:11px; } .brand { font-size:18px; } .masthead { gap:16px; } .inflections,.source-intro,.source-list,.build-notes { grid-template-columns:1fr; } .card-heading { flex-direction:column; gap:12px; } .hero-value { text-align:left; } .hero .chart-wrap { height:280px; } .hero.chart-card { padding:20px; } .section-label { flex-direction:column; gap:4px; } .summary-card h3 { min-height:52px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { body { background:#fff; color:#102139; } .shell { padding:0; } .chart-card,.summary-card { break-inside:avoid; } nav,.skip-link { display:none; } }
+  </style>
+  <!-- Pinned compatible UMD builds; the HTML needs internet only for these two libraries. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to KPI charts</a>
+  <div class="shell">
+    <header>
+      <div class="masthead">
+        <div class="brand">DISNEY<span>STREAMING TRANSFORMATION</span></div>
+        <nav aria-label="Dashboard navigation"><a href="#overview">Overview</a><a href="#dashboard">KPIs</a><a href="#sources">Sources</a></nav>
+      </div>
+      <div class="intro" id="overview">
+        <div><p class="eyebrow">Week 7 / Group 3 / Executive KPI dashboard</p><h1>From buying scale<br>to earning returns</h1>
+          <p class="thesis">Disney is moving its core economics from linear TV distribution and content licensing to direct-to-consumer streaming. The open question is whether that shift has moved from buying scale to earning returns.</p>
+        </div>
+        <aside class="window" aria-label="Reporting window"><h2>Target analysis window</h2><strong>Q1 FY2020 – Q3 FY2026</strong><p>Latest supplied quarter: Q3 FY2026 (Apr–Jun 2026). Actual series coverage varies; the workbook begins in FY2022.</p><p>Subscribers and ARPU end in FY2025. Nielsen contains selected months from Apr 2024 to May 2026.</p></aside>
+      </div>
+      <section aria-labelledby="summary-heading">
+        <div class="section-label"><h2 id="summary-heading">Baseline to latest supplied observation</h2><p>3 leading indicators / 4 lagging outcomes</p></div>
+        <div class="summary-grid" id="summary-tiles"></div>
+        <p class="summary-footnote">Baselines use each series’ first supplied period. Definition and cadence changes limit comparisons. <a href="#data-todos">Review coverage and open data items</a>.</p>
+      </section>
+    </header>
+    <main id="dashboard" aria-label="Seven KPI visualizations">
+      <div id="library-status" class="notice" role="status" hidden></div>
+      <noscript><p class="notice">Enable JavaScript to display the KPI charts and the embedded source register.</p></noscript>
+      <div class="dashboard-grid">
+        <section class="chart-card hero" id="metric-5" aria-labelledby="title-5">
+          <div class="card-heading"><div><span class="metric-id">Metric 05 / Lagging / Operational leverage</span><h2 id="title-5"></h2><p class="card-subtitle">The central test of value creation. Streaming is profitable in the latest supplied quarter, with different reporting perimeters across the history.</p></div><div class="hero-value" id="hero-value"></div></div>
+          <div class="legend"><span><i class="swatch" aria-hidden="true"></i>A · Combined DTC streaming</span><span><i class="swatch gold" aria-hidden="true"></i>B · Entertainment DTC</span><span><i class="swatch teal" aria-hidden="true"></i>C · Entertainment SVOD</span></div>
+          <div class="chart-wrap"><canvas id="chart-5" role="img" aria-label="Streaming operating margin by fiscal quarter, with separate reporting definitions"></canvas></div>
+          <p class="chart-note">calc. = operating income ÷ revenue. Group A includes ESPN+; Group B excludes ESPN+; Group C excludes Hulu Live TV. Missing quarters remain gaps. <span class="todo">TODO: Entertainment-only history and recast SVOD comparables are needed to meet the full Winning Map definition.</span></p>
+          <div class="inflections" id="inflections"></div>
+        </section>
+        <section class="chart-card" id="metric-1" aria-labelledby="title-1"><span class="metric-id">Metric 01 / Leading / Revenue model</span><h2 id="title-1"></h2><p class="card-subtitle">Demand at scale; separate underlying growth from recasts.</p><div class="legend"><span><i class="swatch" aria-hidden="true"></i>Legacy Core</span><span><i class="swatch teal" aria-hidden="true"></i>FY2025 recast</span><span><i class="swatch bar gold" aria-hidden="true"></i>Net adds (calc.)</span></div><div class="chart-wrap"><canvas id="chart-1" role="img" aria-label="Disney+ subscribers and calculated comparable quarter net adds"></canvas></div><p class="chart-note">Millions of paid subscribers. Net adds = change from the immediately preceding quarter within the same definition. FY2024 recast adds Southeast Asia to Core. The two Q4 FY2024 counts are alternate definitions, not growth. <span class="todo">Q1 FY2026: disclosure change; no later counts supplied.</span></p></section>
+        <section class="chart-card" id="metric-4" aria-labelledby="title-4"><span class="metric-id">Metric 04 / Lagging / Customer depth</span><h2 id="title-4"></h2><p class="card-subtitle">Monthly revenue per user, disclosed for each fiscal year.</p><div class="legend"><span><i class="swatch bar" aria-hidden="true"></i>Domestic</span><span><i class="swatch bar teal" aria-hidden="true"></i>International</span></div><div class="chart-wrap"><canvas id="chart-4" role="img" aria-label="Annual domestic and international Disney+ monthly ARPU"></canvas></div><p class="chart-note">USD per month; annual observations, not quarter-end ARPU. Both original and recast FY2024 are retained. International scope changes to include Southeast Asia. <span class="todo">TODO: quarterly ARPU and verified ad-tier annotation values. Q1 FY2026: disclosure change.</span></p></section>
+        <section class="chart-card" id="metric-6" aria-labelledby="title-6"><span class="metric-id">Metric 06 / Lagging / Revenue mix</span><h2 id="title-6"></h2><p class="card-subtitle">DTC takes a larger share of the disclosed revenue pool.</p><div class="legend"><span><i class="swatch bar" aria-hidden="true"></i>DTC share (calc.)</span><span><i class="swatch bar gold" aria-hidden="true"></i>Linear share (calc.)</span></div><div class="chart-wrap"><canvas id="chart-6" role="img" aria-label="DTC and Linear Networks shares of their combined Entertainment revenue"></canvas></div><p class="chart-note">Entertainment only, excluding Sports/ESPN. DTC share comes from the workbook; Linear share = 100% − DTC share. <span class="todo">TODO: DTC and Linear Networks operating-income series for the required line overlay. Q1 FY2026: Linear reporting changes.</span></p></section>
+        <section class="chart-card metric-7" id="metric-7" aria-labelledby="title-7"><span class="metric-id">Metric 07 / Lagging / Whole-business check</span><h2 id="title-7"></h2><p class="card-subtitle">Comparable annual margins test the wider profit pool.</p><div class="legend"><span><i class="swatch teal" aria-hidden="true"></i>Annual comparable (calc.)</span></div><div class="chart-wrap"><canvas id="chart-7" role="img" aria-label="Comparable annual Entertainment segment operating margins"></canvas></div><div class="supplement" id="segment-latest"></div><p class="chart-note">FY2022–FY2025 annual margins = operating income ÷ revenue. FY2026 reported quarterly margins are supplementary; they are not connected to the annual trend. <span class="todo">TODO: the complete recast quarterly history.</span></p></section>
+        <section class="chart-card" id="metric-3" aria-labelledby="title-3"><span class="metric-id">Metric 03 / Leading / Operational leverage</span><h2 id="title-3"></h2><p class="card-subtitle">Lower spending intensity can support current margins.</p><div class="legend"><span><i class="swatch bar gold" aria-hidden="true"></i>Company-wide content spend (calc.)</span></div><div class="chart-wrap"><canvas id="chart-3" role="img" aria-label="Annual company-wide content investment as a percentage of revenue"></canvas></div><p class="chart-note">calc. = (licensed programming/rights + produced-content spending) ÷ consolidated revenue. This is company-wide spending, not streaming-only. <span class="todo">TODO: pre-FY2022 baseline history.</span></p></section>
+        <section class="chart-card" id="metric-2" aria-labelledby="title-2"><span class="metric-id">Metric 02 / Leading / Engagement</span><h2 id="title-2"></h2><p class="card-subtitle">Audience engagement across Disney’s US TV portfolio.</p><div class="legend"><span><i class="swatch" aria-hidden="true"></i>Nielsen selected monthly observations</span></div><div class="chart-wrap"><canvas id="chart-2" role="img" aria-label="Selected monthly Disney shares of US TV viewing from the Nielsen Media Distributor Gauge"></canvas></div><p class="chart-note">The Media Distributor Gauge starts in Apr 2024. Selected months are spaced by calendar time; missing months remain gaps. This includes Disney’s broader TV portfolio, not Disney+ alone. Seasonal sports and content schedules affect viewing.</p></section>
+      </div>
+    </main>
+    <footer id="sources">
+      <p class="eyebrow">Evidence register</p><h2>Sources and measurement notes</h2>
+      <div class="source-intro"><p>Data authority: <strong>Week7_Mahdin_Data.xlsx</strong>, KPI_DATA, compiled by Mahdin Awsaf Chowdhury. All supplied values, calculation methods, definition groups and source URLs are embedded below. The source links are copied from the workbook; this build does not claim independent verification.</p><p>The Winning Map sets the thesis, seven KPI names and layout. The workbook sets the available observations and reporting definitions. “calc.” identifies a calculation; no estimates are added. <span class="todo">TODO: publication/filing dates are not supplied consistently in the source register.</span></p></div>
+      <div id="source-register"></div>
+      <details id="data-todos" open><summary>Coverage and open data items</summary><ul class="build-notes" id="todo-list"></ul></details>
+      <details><summary>Embedded workbook observations and calculation methods</summary><table class="raw-data"><caption>All 59 KPI_DATA observations, in source order</caption><thead><tr><th scope="col">KPI / cell</th><th scope="col">Series / definition</th><th scope="col">Period</th><th scope="col">Value / status</th><th scope="col">Workbook method</th></tr></thead><tbody id="raw-data"></tbody></table></details>
+      <div class="credits"><span>Group 3 / Week 7 / Disney streaming transformation</span><span>Dashboard Builder / Technical Build: Tiago Farinas · Data: Mahdin Awsaf Chowdhury</span></div>
+    </footer>
+  </div>
+  <script>
+    'use strict';
+    // Presentation and calculations read DASHBOARD_DATA; no fetch, API, or backend.
+    const chartInstances = new Map();
+    const palette = { blue:'#82b8ff', teal:'#68dec8', gold:'#e8c587', rose:'#f2a3af', muted:'#b4c2d5', grid:'#2b3c53' };
+    const rowsFor = id => DASHBOARD_DATA.observations.filter(row => row.kpi === `KPI${id}`);
+    const percent = value => `${(value * 100).toFixed(1)}%`;
+    const money = value => `$${value.toFixed(2)}`;
+    const millions = value => `${value.toFixed(1)}M`;
+    const pp = value => `${value >= 0 ? '+' : '−'}${Math.abs(value * 100).toFixed(1)} pp (calc.)`;
+    const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const firstLast = rows => [rows[0], rows[rows.length - 1]];
+    function quarterIndex(period) { const match = /Q([1-4]) FY(\d{4})/.exec(period); return match ? Number(match[2]) * 4 + Number(match[1]) - 1 : null; }
+    function calculateNetAdds(rows) {
+      return rows.map((row, index) => {
+        const previous = rows[index - 1];
+        return previous && previous.definition === row.definition && quarterIndex(row.period) === quarterIndex(previous.period) + 1
+          ? Number((row.value - previous.value).toFixed(10)) : null;
+      });
+    }
+    function summarize(metric) {
+      const rows = rowsFor(metric.id);
+      let [baseline, latest] = firstLast(rows), format = percent, note = metric.summaryNote;
+      if (metric.id === 1) format = millions;
+      if (metric.id === 4) {
+        const domestic = rows.filter(row => row.series.endsWith('Domestic'));
+        const international = rows.filter(row => row.series.endsWith('International'));
+        [baseline, latest] = firstLast(domestic);
+        return {baseline, latest, baselineValue:`${money(baseline.value)} / ${money(international[0].value)}`, latestValue:`${money(latest.value)} / ${money(international.at(-1).value)}`, note};
+      }
+      if ([2,3,6].includes(metric.id)) note = `${pp(latest.value - baseline.value)}. ${note}`;
+      return {baseline, latest, baselineValue:format(baseline.value), latestValue:format(latest.value), note};
+    }
+    function renderContent() {
+      document.getElementById('summary-tiles').innerHTML = DASHBOARD_DATA.metrics.map(metric => {
+        const summary = summarize(metric);
+        document.getElementById(`title-${metric.id}`).textContent = metric.name;
+        return `<article class="summary-card ${metric.id === 5 ? 'hero-summary' : ''}"><span class="metric-id">${String(metric.id).padStart(2,'0')} / ${escapeHTML(metric.type)}</span><h3>${escapeHTML(metric.name)}</h3><div class="summary-pair"><div><span>BASELINE</span><strong>${summary.baselineValue}</strong><small>${escapeHTML(summary.baseline.period)}</small></div><div class="latest"><span>LATEST SUPPLIED</span><strong>${summary.latestValue}</strong><small>${escapeHTML(summary.latest.period)}</small></div></div><p class="summary-note">${escapeHTML(summary.note)}</p></article>`;
+      }).join('');
+      const streaming = rowsFor(5).at(-1);
+      document.getElementById('hero-value').innerHTML = `<span>Latest / ${escapeHTML(streaming.period)}</span><strong>${percent(streaming.value)}</strong><small>Entertainment SVOD · calc.</small>`;
+      const segment = rowsFor(7);
+      const annualLatest = segment.filter(row => row.definition === 'Annual comparable').at(-1);
+      const quarterlyLatest = segment.at(-1);
+      document.getElementById('segment-latest').innerHTML = `<p>Latest quarterly observation<br>${escapeHTML(quarterlyLatest.period)} · supplementary<br>Latest annual: ${percent(annualLatest.value)} (${annualLatest.period}, calc.)</p><strong>${percent(quarterlyLatest.value)}</strong>`;
+      document.getElementById('inflections').innerHTML = DASHBOARD_DATA.inflections.map(item => `<article class="inflection"><small>${escapeHTML(item.period)}</small><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.wording)} <a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">Source</a></p></article>`).join('');
+      document.getElementById('todo-list').innerHTML = DASHBOARD_DATA.todos.map(todo => `<li><span class="todo">TODO:</span> ${escapeHTML(todo)}</li>`).join('');
+      renderSources();
+      document.getElementById('raw-data').innerHTML = DASHBOARD_DATA.observations.map(row => `<tr><td>${row.kpi}<br>KPI_DATA!${row.cell}</td><td>${escapeHTML(row.series)}<br>${escapeHTML(row.definition)}</td><td>${escapeHTML(row.period)}</td><td>${row.unit.startsWith('%') ? percent(row.value) : row.unit === '$/month' ? money(row.value) : millions(row.value)}<br>${escapeHTML(row.status)}</td><td>${escapeHTML(row.method)}</td></tr>`).join('');
+    }
+    function renderSources() {
+      const registry = new Map(DASHBOARD_DATA.sources.map(source => [source.url, source]));
+      document.getElementById('source-register').innerHTML = DASHBOARD_DATA.metrics.map(metric => {
+        const sources = new Map();
+        rowsFor(metric.id).forEach(row => {
+          if (!sources.has(row.url)) sources.set(row.url, []);
+          sources.get(row.url).push(row);
+        });
+        const list = [...sources].map(([url, rows]) => {
+          const source = registry.get(url);
+          const periods = [...new Set(rows.map(row => row.period))].join(', ');
+          const title = source?.title ?? `Disney filing / earnings disclosure — ${periods}`;
+          const cells = rows.map(row => row.cell).join(', ');
+          return `<li><a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(title)}</a><span>Observations: ${escapeHTML(periods)} · KPI_DATA values: ${cells}</span><span>Publication / filing date: ${source?.publicationDate ?? 'TODO — not supplied'}</span></li>`;
+        }).join('');
+        return `<details><summary>${String(metric.id).padStart(2,'0')}. ${escapeHTML(metric.name)} · ${sources.size} sources</summary><p class="card-subtitle">${escapeHTML(metric.sourceMethod)}</p><ol class="source-list">${list}</ol></details>`;
+      }).join('');
+    }
+    function baseOptions(yTitle, kind = 'percent') {
+      return {responsive:true, maintainAspectRatio:false, animation:false, interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false}, tooltip:{backgroundColor:'#081221',titleColor:'#f4f7fc',bodyColor:'#dce6f5',borderColor:palette.grid,borderWidth:1,padding:12,
+          callbacks:{label:context => { const value = context.parsed.y; const formatted = kind === 'money' ? money(value) : kind === 'millions' ? millions(value) : `${value.toFixed(1)}%`; return `${context.dataset.label}: ${formatted}`; }} }},
+        scales:{x:{grid:{display:false},border:{display:false},ticks:{color:palette.muted,font:{size:10},maxRotation:45,minRotation:0}},y:{title:{display:true,text:yTitle,color:palette.muted,font:{size:10}},grid:{color:palette.grid},border:{display:false},ticks:{color:palette.muted,font:{size:10},callback:value => kind === 'money' ? `$${value}` : kind === 'millions' ? value : `${value}%`}}}};
+    }
+    function makeChart(id, configuration) {
+      const chart = new Chart(document.getElementById(`chart-${id}`), configuration);
+      chartInstances.set(id, chart);
+      return chart;
+    }
+    function lineSeries(label, data, color, extras = {}) {
+      return {type:'line',label,data,borderColor:color,backgroundColor:color,pointRadius:3,pointHoverRadius:5,borderWidth:2.5,tension:0,spanGaps:false,...extras};
+    }
+    function initializeMetric5() {
+      const rows = rowsFor(5), labels = DASHBOARD_DATA.quarters;
+      const groups = [...new Set(rows.map(row => row.definition))];
+      const colors = [palette.blue,palette.gold,palette.teal];
+      const datasets = groups.map((group,index) => lineSeries(`${group} (calc.)`,labels.map(period => { const row = rows.find(row => row.period === period && row.definition === group); return row ? row.value * 100 : null; }),colors[index],{borderWidth:3,pointRadius:4}));
+      const options = baseOptions('Operating margin (%)');
+      options.scales.y.suggestedMin = -35;
+      options.scales.y.suggestedMax = 15;
+      options.scales.x.ticks.maxRotation = 0;
+      options.scales.x.ticks.callback = (value,index) => { const period = labels[index]; return period.includes('Q1 ') || index === 0 || index === labels.length-1 ? period : ''; };
+      options.plugins.annotation = {annotations:{breakeven:{type:'line',yMin:0,yMax:0,borderColor:palette.muted,borderWidth:1,borderDash:[5,5],label:{display:true,content:'Break-even',position:'start',color:palette.muted,backgroundColor:'#101e31',font:{size:10}}},dtcBreak:{type:'line',xMin:'Q1 FY2025',xMax:'Q1 FY2025',borderColor:palette.gold,borderWidth:1,borderDash:[4,5],label:{display:true,content:'Entertainment DTC',position:'start',color:palette.gold,backgroundColor:'#101e31',font:{size:10}}},svodBreak:{type:'line',xMin:'Q1 FY2026',xMax:'Q1 FY2026',borderColor:palette.teal,borderWidth:1,borderDash:[4,5],label:{display:true,content:'SVOD definition',position:'end',color:palette.teal,backgroundColor:'#101e31',font:{size:10}}}}};
+      return makeChart(5,{type:'line',data:{labels,datasets},options});
+    }
+    function initializeMetric1() {
+      const rows = rowsFor(1), labels = rows.map(row => row.period), adds = calculateNetAdds(rows);
+      const groups = [...new Set(rows.map(row => row.definition))];
+      const datasets = groups.map((group,index) => lineSeries(group,rows.map(row => row.definition === group ? row.value : null),index === 0 ? palette.blue : palette.teal,{yAxisID:'y',order:1}));
+      datasets.push({type:'bar',label:'Net adds (calc., comparable quarters only)',data:adds,backgroundColor:palette.gold,borderRadius:2,yAxisID:'netAdds',order:2});
+      const options = baseOptions('Subscribers (M)','millions');
+      options.scales.y.min = 0;
+      options.scales.netAdds = {position:'right',title:{display:true,text:'Net adds (M)',color:palette.gold,font:{size:10}},grid:{drawOnChartArea:false},border:{display:false},ticks:{color:palette.gold,font:{size:10}},suggestedMin:-2,suggestedMax:8};
+      options.plugins.tooltip.callbacks.label = context => `${context.dataset.label}: ${millions(context.parsed.y)}`;
+      return makeChart(1,{type:'bar',data:{labels,datasets},options});
+    }
+    function initializeMetric4() {
+      const rows = rowsFor(4), labels = [...new Set(rows.map(row => row.period))];
+      const datasets = ['Domestic','International'].map((series,index) => ({label:series,data:labels.map(period => rows.find(row => row.period === period && row.series.endsWith(series))?.value ?? null),backgroundColor:index === 0 ? palette.blue : palette.teal,borderRadius:3}));
+      const options = baseOptions('USD per month','money'); options.scales.y.beginAtZero = true;
+      return makeChart(4,{type:'bar',data:{labels,datasets},options});
+    }
+    function initializeMetric6() {
+      const rows = rowsFor(6), labels = rows.map(row => row.period);
+      const datasets = [{label:'DTC revenue share (workbook calc.)',data:rows.map(row => row.value*100),backgroundColor:palette.blue,borderRadius:2},{label:'Linear revenue share (calc. complement)',data:rows.map(row => (1-row.value)*100),backgroundColor:palette.gold,borderRadius:2}];
+      // TODO: add operating-income line datasets only after verified rows are supplied.
+      const options = baseOptions('Share of DTC + Linear revenue (%)'); options.scales.x.stacked=true; options.scales.y.stacked=true; options.scales.y.min=0; options.scales.y.max=100;
+      return makeChart(6,{type:'bar',data:{labels,datasets},options});
+    }
+    function initializeMetric7() {
+      const rows = rowsFor(7).filter(row => row.definition === 'Annual comparable');
+      const options = baseOptions('Annual operating margin (%)'); options.scales.y.beginAtZero=true;
+      return makeChart(7,{type:'line',data:{labels:rows.map(row => row.period),datasets:[lineSeries('Annual comparable margin (calc.)',rows.map(row => row.value*100),palette.teal)]},options});
+    }
+    function initializeMetric3() {
+      const rows = rowsFor(3), options = baseOptions('Content spend / total revenue (%)'); options.scales.y.beginAtZero=true;
+      return makeChart(3,{type:'bar',data:{labels:rows.map(row => row.period),datasets:[{label:'Content investment (calc.)',data:rows.map(row => row.value*100),backgroundColor:palette.gold,borderRadius:3}]},options});
+    }
+    function initializeMetric2() {
+      const rows = rowsFor(2), labels = DASHBOARD_DATA.months;
+      const values = labels.map(period => { const row = rows.find(row => row.period === period); return row ? row.value*100 : null; });
+      const options = baseOptions('Share of US TV viewing (%)'); options.scales.y.beginAtZero=true;
+      options.scales.x.ticks.autoSkip=false;
+      options.scales.x.ticks.callback = (value,index) => values[index] === null ? '' : labels[index];
+      return makeChart(2,{type:'line',data:{labels,datasets:[lineSeries('Nielsen selected months (reported)',values,palette.blue,{pointRadius:5})]},options});
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      renderContent();
+      const status = document.getElementById('library-status');
+      if (typeof Chart === 'undefined') {
+        status.hidden=false; status.textContent='Chart libraries could not load. Connect to the internet and reopen this file. The summary and embedded workbook observations remain available below.'; return;
+      }
+      if (!Chart.registry.plugins.get('annotation')) {
+        const annotation = window.ChartAnnotation;
+        if (annotation) Chart.register(annotation);
+      }
+      if (!Chart.registry.plugins.get('annotation')) {
+        status.hidden=false; status.textContent='The annotation library could not load. Reopen with an internet connection to display reporting-break markers.';
+      }
+      [initializeMetric5,initializeMetric1,initializeMetric4,initializeMetric6,initializeMetric7,initializeMetric3,initializeMetric2].forEach(initialize => initialize());
+    });
+  </script>
+</body>
+</html>
